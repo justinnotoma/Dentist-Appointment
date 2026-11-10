@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Dentist_Office_Appointment:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Dentist_Office_Appointment_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Dentist_Office_Appointment/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Dentist_Office_Appointment" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
