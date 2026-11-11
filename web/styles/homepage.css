@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "Poppins", sans-serif;
+    src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Poppins", sans-serif;
+    src: url("../assets/fonts/Poppins/Poppins-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Roboto", sans-serif;
+    src: url("../assets/fonts/Roboto/Roboto-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Roboto", sans-serif;
+    src: url("../assets/fonts/Roboto/Roboto-Bold.ttf");
+    font-weight: 700;
+}
+
+:root {
+    --font-400: "Poppins", sans-serif;
+    --font-700: "Roboto", sans-serif;
+
+    --bkg-clr: #121212;
+    --container-clr-400: #006838;
+    --border-clr-400: #37718E;
+    --font-clr-400: #fff;
+    --font-clr-500: #C33C54;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: var(--font-400);
+    color: var(--font-clr-400);
+}
+
+body {
+    display: flex;
+    flex-wrap: nowrap;
+    
+    width: 100%;
+    height: 100vh;
+
+    background-color: var(--bkg-clr);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+
+    width: 60%;
+    height: 100%;
+
+    & header {
+        width: 75%;
+        height: 10%;
+        text-align: center;
+    }
+
+    & header h1 { 
+        font-size: 3rem; 
+        font-family: var(--font-700);
+    }
+    & header h2 { 
+        font-size: 1.5rem; 
+        opacity: 0.5;
+        font-family: var(--font-700);
+    }
+
+    & a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 20%;
+        height: 8%;
+
+        border-radius: 50px;
+        border: none;
+
+        font-size: 1rem;
+        text-decoration: none;
+        background-color: var(--container-clr-400);
+
+        transition: all 0.5s;
+    }
+    & a:hover {
+        transform: scale(1.1);
+    }
+}
+
+img {
+    width: 40%;
+    height: 100%;
+}
