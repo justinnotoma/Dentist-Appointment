@@ -1,3 +1,5 @@
+import main.Business.Patient;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -20,7 +22,16 @@ public class LoginServlet extends HttpServlet {
         try {
             email = request.getParameter("email");
             password = request.getParameter("password");
-            System.out.println("Email: " + email + "\nPassword: " + password);
+
+            Patient p1 = new Patient();
+            p1.selectDB(email);
+            if (p1.getEmail().isEmpty() || !p1.getPassword().equals(password)) {
+                RequestDispatcher rd = request.getRequestDispatcher("errorLogin.html");
+                rd.forward(request, response);
+            } else if (p1.getPassword().equals(password)) {
+                RequestDispatcher rd = request.getRequestDispatcher("index.html");
+                rd.forward(request, response);
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
