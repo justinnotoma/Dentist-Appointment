@@ -33,6 +33,7 @@ public class Patient {
         this.insCo = insCo;
     }
 
+//    Database methods
     private Connection createConnection() {
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");

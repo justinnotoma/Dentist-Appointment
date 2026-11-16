@@ -1,3 +1,4 @@
+import main.Business.Dentist;
 import main.Business.Patient;
 
 import java.io.IOException;
@@ -25,11 +26,18 @@ public class LoginServlet extends HttpServlet {
 
             Patient p1 = new Patient();
             p1.selectDB(email);
-            if (p1.getEmail().isEmpty() || !p1.getPassword().equals(password)) {
+            Dentist d1 = new Dentist();
+            d1.selectDB(email);
+
+            if (p1.getEmail().isEmpty() && d1.getEmail().isEmpty()) {
                 RequestDispatcher rd = request.getRequestDispatcher("errorLogin.html");
                 rd.forward(request, response);
-            } else if (p1.getPassword().equals(password)) {
-                RequestDispatcher rd = request.getRequestDispatcher("index.html");
+            } else if (p1.getEmail().equals(email) && p1.getPassword().equals(password)) {
+                System.out.println("Patient access granted");
+            } else if (d1.getEmail().equals(email) && d1.getPassword().equals(password)) {
+                System.out.println("Dentist access granted");
+            } else {
+                RequestDispatcher rd = request.getRequestDispatcher("errorLogin.html");
                 rd.forward(request, response);
             }
         } catch (Exception e) {
